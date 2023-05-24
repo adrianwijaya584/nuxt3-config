@@ -13,7 +13,9 @@ export default defineNuxtRouteMiddleware((to, from)=> {
         redirectUrl.value= from.path
       }
       
-      useNuxtApp().$toast.error('Oops anda belum login :(', {})
+      useNuxtApp().$toast.error('Oops anda belum login :(', {
+        
+      })
 
       return navigateTo(redirectUrl.value)  
     }

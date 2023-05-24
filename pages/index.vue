@@ -5,28 +5,44 @@
       loading="lazy"
       src="https://i.pinimg.com/736x/1b/88/92/1b8892d1ee65e258a2ce7804f52c5f9a.jpg"
       height="200" 
-      class="h-[200px] self-start"
+      width="200" 
+      alt="ryo yamada"
+      class="self-start"
+    />
+
+    <NuxtImg
+      preload
+      loading="lazy"
+      src="/jeanne.jpg"
+      quality="100"
+      height="200" 
+      width="200" 
+      alt="jeanne"
+      class="self-start"
     />
 
     <form @submit.prevent="addNewCat" class="flex flex-col space-y-2">
       <label for="name">Cat Name</label>
       <input type="text" name="name" v-model="name" class="dark:text-black">
+      <button class="bg-slate-400">Tambahkan kucing</button>
     </form>
 
-    <p v-for="cat, k in catsStore.cats" :key="k">{{ cat.name }}</p>
+    <div v-for="cat, k in catsStore.cats" :key="k">
+      <p>{{ cat.name }}</p>
+      <button @click="deleteCat(k)">Hapus kucing</button>
+    </div>
 
-    <button @click.stop="darkModeToggler()">Toggle</button>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
   import { useCatsStore } from '~/stores/cats';
 
   useHead({
     title: 'Home'
   })
 
-  const darkModeToggler= useToggle(useDark())
+  const nuxtApp= useNuxtApp()
 
   const name= shallowRef('pus')
   const catsStore= useCatsStore()
@@ -37,5 +53,14 @@
     }
 
     catsStore.addCat(name.value)
+
+    name.value= ''
+    nuxtApp.$toast.success('Kucing berhasil ditambahkan')
+  }
+
+  function deleteCat(pos: number) {
+    catsStore.deleteCat(pos)
+
+    nuxtApp.$toast.success('Kucing berhasil dihapus')
   }
 </script>

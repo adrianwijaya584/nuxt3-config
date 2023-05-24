@@ -12,6 +12,9 @@ export const useCatsStore= defineStore("cats", {
       this.cats.push({
         name
       })
+    },
+    deleteCat(pos: number) {
+      this.cats.splice(pos, 1)
     }
   }
 })
