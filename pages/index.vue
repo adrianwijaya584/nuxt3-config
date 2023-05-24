@@ -13,7 +13,7 @@
     <NuxtImg
       preload
       loading="lazy"
-      src="/jeanne.jpg"
+      src="jeanne.jpg"
       quality="100"
       height="200" 
       width="200" 
