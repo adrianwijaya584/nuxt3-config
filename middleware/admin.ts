@@ -1,13 +1,21 @@
 export default defineNuxtRouteMiddleware((to, from)=> {
-  
-  if (to.path=='/secret') {
-    useNuxtApp().$toast.error('Oops anda belum login', {
-    })
+  const pathWithMiddleware= ['/secret']
 
+  if (pathWithMiddleware.includes(to.path)) {
     const token= useLocalStorage('token', null)
-
+    
     if (!token.value) {
-      return navigateTo(from.path ?? '/')  
+      const redirectUrl= useState('redirectUrl', ()=> '/')
+
+      if (pathWithMiddleware.includes(from.path)) {
+        redirectUrl.value= '/'
+      } else {
+        redirectUrl.value= from.path
+      }
+      
+      useNuxtApp().$toast.error('Oops anda belum login :(', {})
+
+      return navigateTo(redirectUrl.value)  
     }
 
   }

@@ -11,7 +11,6 @@
     <form @submit.prevent="addNewCat" class="flex flex-col space-y-2">
       <label for="name">Cat Name</label>
       <input type="text" name="name" v-model="name" class="dark:text-black">
-      <button class="bg-red-500">Tambah kucing</button>
     </form>
 
     <p v-for="cat, k in catsStore.cats" :key="k">{{ cat.name }}</p>

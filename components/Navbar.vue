@@ -1,7 +1,7 @@
 <template>
   <div class="sticky h-[70px] top-0 left-0 z-50 flex flex-row justify-between items-center px-7 bg-gray-200 dark:bg-slate-400">
     <NuxtLink to="/">
-      <h3 class="font-bold text-xl">Web</h3>
+      <h3 class="font-bold text-xl">Web Keren</h3>
     </NuxtLink>
 
     <div class="flex flex-row items-center space-x-5">
