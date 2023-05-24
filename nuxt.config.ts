@@ -15,6 +15,9 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/tailwindcss'
   ],
+  image: {
+    provider: "ipx"
+  },
   pinia: {
     autoImports: ['defineStore', 'definePiniaStore'],
   },
