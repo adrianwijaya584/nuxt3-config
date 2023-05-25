@@ -14,6 +14,11 @@
   useSeoMeta({
     description: 'web keren pokoknya',
     ogImage: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-leafgreen-version/e/e2/Pokemon-leafgreen-box.jpg',
+    twitterCard: 'summary_large_image',
+    twitterSite: '@adrianwijaya584',
+    twitterCreator: '@adrianwijaya584',
+    twitterTitle: 'Web test',
+    twitterDescription: 'Hello ini web test ya',
     twitterImage: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-leafgreen-version/e/e2/Pokemon-leafgreen-box.jpg',
     appleMobileWebAppTitle: 'test',
   })
