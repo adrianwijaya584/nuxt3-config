@@ -36,6 +36,10 @@ export default defineNuxtConfig({
           content: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-leafgreen-version/e/e2/Pokemon-leafgreen-box.jpg',
         }, 
         {
+          name: 'thumbnail',
+          content: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-leafgreen-version/e/e2/Pokemon-leafgreen-box.jpg',
+        }, 
+        {
           name: 'twitter:card',
           content: 'summary_large_image'
         },
