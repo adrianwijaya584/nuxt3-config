@@ -1,10 +1,11 @@
 export default defineNuxtRouteMiddleware((to, from)=> {
   const pathWithMiddleware= ['/secret']
 
+  console.log(to);
+
   if (pathWithMiddleware.includes(to.path)) {
     const token= useLocalStorage('token', null)
 
-    console.log(to.path);
     
     if (!token.value) {
       const redirectUrl= useState('redirectUrl', ()=> '/')
