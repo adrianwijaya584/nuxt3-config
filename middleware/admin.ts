@@ -3,6 +3,8 @@ export default defineNuxtRouteMiddleware((to, from)=> {
 
   if (pathWithMiddleware.includes(to.path)) {
     const token= useLocalStorage('token', null)
+
+    console.log(to.path);
     
     if (!token.value) {
       const redirectUrl= useState('redirectUrl', ()=> '/')
