@@ -7,6 +7,10 @@
 </template>
 
 <script setup lang="ts">
+  import 'lazysizes';
+  // import a plugin
+  import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+
   useSeoMeta({
     description: 'web keren pokoknya',
     ogImage: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-leafgreen-version/e/e2/Pokemon-leafgreen-box.jpg',

@@ -13,7 +13,9 @@
     </div>
 
     <div v-else>
-      <p v-for="{title}, k in todoStore.todos">{{title}}</p>
+      <NuxtLink v-for="{id, title}, k in todoStore.todos" :to="`/todo/${id}`">
+        <p>{{title}}</p>
+      </NuxtLink>
     </div>
   </div>
 </template>

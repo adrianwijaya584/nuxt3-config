@@ -10,15 +10,12 @@
       class="self-start"
     />
 
-    <NuxtImg
-      preload
-      loading="lazy"
-      src="jeanne.jpg"
-      quality="100"
+    <img
+      data-src="jeanne.jpg"
       height="200" 
       width="200" 
       alt="jeanne"
-      class="self-start"
+      class="lazyload self-start"
     />
 
     <form @submit.prevent="addNewCat" class="flex flex-col space-y-2">
