@@ -12,10 +12,10 @@ export default defineNuxtConfig({
   ],
   image: {
     domains: ['**', 'i.pinimg.com'],
-    provider: "netlify",
-    netlify: {
-      baseURl: process.env.IMAGES_URL
-    }
+    // provider: "netlify",
+    // netlify: {
+    //   baseURl: process.env.IMAGES_URL
+    // }
   },
   pinia: {
     autoImports: ['defineStore', 'definePiniaStore'],
