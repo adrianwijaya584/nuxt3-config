@@ -11,7 +11,10 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss'
   ],
   image: {
-    provider: "ipx"
+    provider: "netlify",
+    netlify: {
+      baseURl: process.env.IMAGES_URL
+    }
   },
   pinia: {
     autoImports: ['defineStore', 'definePiniaStore'],

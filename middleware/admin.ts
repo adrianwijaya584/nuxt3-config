@@ -1,7 +1,6 @@
 export default defineNuxtRouteMiddleware((to, from)=> {
   const nuxtApp= useNuxtApp()
   const pathWithMiddleware= ['secret', 'todo/:id']
-  const regex= new RegExp(/^\/|(\(\))|\/$/gim)
 
   const toPath= nuxtApp.$cleanUrl(to.matched[0].path)
   const fromPath= nuxtApp.$cleanUrl(from.matched[0].path)

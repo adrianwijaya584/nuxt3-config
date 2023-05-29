@@ -4,15 +4,22 @@
       <h3 class="font-bold text-xl">Web Keren</h3>
     </NuxtLink>
 
-    <div class="flex flex-row items-center space-x-5">
-      <NuxtLink v-for="{to, text}, k in links" :key="k" :to="to" :class="`${to==route.path?'text-green-400':''}`">{{ text }}</NuxtLink>
+    <div class="flex flex-row items-center space-x-3">
+      <div :class="`flex flex-col fixed duration-500 top-[70px] bg-red-300 w-[200px] h-screen md:flex md:right-0 md:bg-transparent md:h-fit md:w-fit md:relative md:top-0 md:flex-row md:space-x-5 ${!showDrawer?'overflow-hidden -right-[200px]':'right-0'}`">
+        <NuxtLink v-for="{to, text}, k in links" :key="k" :to="to" :class="`${to==route.path?'text-green-400':''}`">{{ text }}</NuxtLink>
+      </div>
+
+      <button class=" md:hidden" @click="showDrawer= !showDrawer">hamburger</button>
+
       <button @click="darkModeToggler()" class="bg-black text-white p-2">{{ isDark?'light':'dark' }} mode</button>
     </div>
+
   </div>
 </template>
 
 <script setup lang="ts">
   const isDark= useDark()
+  const showDrawer= shallowRef(false)
   const darkModeToggler= useToggle(isDark)
 
   const route= useRoute()
@@ -31,4 +38,8 @@
       text: 'Secret'
     },
   ]
+
+  watch(route, ()=> {
+    showDrawer.value= false
+  })
 </script>
