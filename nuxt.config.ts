@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss'
   ],
   image: {
-    domains: ['*'],
+    domains: ['**', 'i.pinimg.com'],
     provider: "netlify",
     netlify: {
       baseURl: process.env.IMAGES_URL
