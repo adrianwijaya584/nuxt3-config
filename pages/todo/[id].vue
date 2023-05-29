@@ -13,7 +13,7 @@
       </div>
 
       <div v-else>
-        <p>Todo tidak ditemukan</p>
+        <p>Todo tidak ditemukan !</p>
       </div>
     </div> 
   </div> 
