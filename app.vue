@@ -8,7 +8,6 @@
 
 <script setup lang="ts">
   import 'lazysizes';
-  // import a plugin
   import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
   useSeoMeta({

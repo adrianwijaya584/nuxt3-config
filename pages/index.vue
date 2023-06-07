@@ -36,7 +36,7 @@
   import { useCatsStore } from '~/stores/cats';
 
   useHead({
-    title: 'Home'
+    title: 'Home',
   })
 
   const nuxtApp= useNuxtApp()
