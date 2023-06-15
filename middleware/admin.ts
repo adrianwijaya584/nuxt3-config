@@ -6,7 +6,10 @@ export default defineNuxtRouteMiddleware((to, from)=> {
   const fromPath= nuxtApp.$cleanUrl(from.matched[0].path)
 
   if (pathWithMiddleware.includes(toPath)) {
-    const token= useLocalStorage('token', null)
+    const token= useCookie('token')
+
+    console.log(token.value);
+    
 
     if (!token.value) {
       const redirectUrl= useState('redirectUrl', ()=> '/')
@@ -17,10 +20,11 @@ export default defineNuxtRouteMiddleware((to, from)=> {
         redirectUrl.value= from.path
       }
       
-      nuxtApp.$toast.error('Oops anda belum login :(', {
-        
-      })
-
+      try {
+        nuxtApp.$toast.error('Oops anda belum login :(', {})
+      } catch (error) {
+        console.log(error);
+      }
       return navigateTo(redirectUrl.value)  
     }
 

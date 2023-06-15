@@ -18,7 +18,7 @@
       class="self-start"
     />
 
-    <form @submit.prevent="addNewCat" class="flex flex-col space-y-2">
+    <form @submit.prevent="addNewCat()" class="flex flex-col space-y-2">
       <label for="name">Nama kucing</label>
       <input type="text" id="name" v-model="name" class="dark:text-black">
       <button class="bg-slate-400">Tambahkan kucing</button>
@@ -61,4 +61,5 @@
 
     nuxtApp.$toast.success('Kucing berhasil dihapus')
   }
+
 </script>

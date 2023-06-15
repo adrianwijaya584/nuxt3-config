@@ -11,7 +11,7 @@
 
       <button class=" md:hidden" @click="showDrawer= !showDrawer">hamburger</button>
 
-      <button @click="darkModeToggler()" class="bg-black text-white p-2">{{ isDark?'light':'dark' }} mode</button>
+      <button @click="darkModeToggler()" class="bg-black text-white p-2">toggle dark mode</button>
     </div>
 
   </div>

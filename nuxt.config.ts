@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   typescript: {
     shim: false
   },
-  ssr: false,
+  // ssr: false,
   modules: [
     '@pinia/nuxt',
     '@nuxt/image-edge',
@@ -12,16 +12,9 @@ export default defineNuxtConfig({
   ],
   image: {
     domains: ['**', 'i.pinimg.com'],
-    // provider: "netlify",
-    // netlify: {
-    //   baseURl: process.env.IMAGES_URL
-    // }
   },
   pinia: {
     autoImports: ['defineStore', 'definePiniaStore'],
-  },
-  tailwindcss: {
-    configPath: 'tailwind.config.js'
   },
   app: {
     head: {
