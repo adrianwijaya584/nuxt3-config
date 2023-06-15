@@ -10,7 +10,4 @@
   import 'lazysizes';
   import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
-  useSeoMeta({
-    description: 'test123'
-  })
 </script>

@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxt/image-edge',
     '@vueuse/nuxt',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
   ],
   image: {
     domains: ['**', 'i.pinimg.com'],
@@ -26,52 +26,6 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Nuxt 3.5 preview test',
-      meta: [
-        {
-          name: 'description',
-          content: 'web keren pokoknya'
-        },
-        {
-          name: 'og:title',
-          content: 'web cool'
-        },
-        {
-          name: 'og:image',
-          content: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-leafgreen-version/e/e2/Pokemon-leafgreen-box.jpg',
-        }, 
-        {
-          name: 'thumbnail',
-          content: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-leafgreen-version/e/e2/Pokemon-leafgreen-box.jpg',
-        }, 
-        {
-          name: 'twitter:card',
-          content: 'summary_large_image'
-        },
-        {
-          name: 'twitter:site',
-          content: '@adrianwijaya584' 
-        },
-        {
-          name: 'twitter:site',
-          content: '@adrianwijaya584' 
-        },
-        {
-          name: 'twitter:creator',
-          content: '@adrianwijaya584' 
-        },
-        {
-          name: 'twitter:title',
-          content: 'web test' 
-        },
-        {
-          name: 'twitter:description',
-          content: 'web keren pokoknya' 
-        },
-        {
-          name: 'twitter:image',
-          content: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-leafgreen-version/e/e2/Pokemon-leafgreen-box.jpg' 
-        }
-      ],
     }
   },
 })
