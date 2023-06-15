@@ -35,9 +35,8 @@
 <script setup lang="ts">
   import { useCatsStore } from '~/stores/cats';
 
-  useServerSeoMeta({
+  useHead({
     title: 'Hello World',
-    creator: 'Adrian'
   })
 
   const nuxtApp= useNuxtApp()

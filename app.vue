@@ -14,7 +14,7 @@
     description: 'Web testing nuxt 3',
     author: 'Adrian',
     title: 'Nuxt 3 App',
-    ogImageUrl: 'https://i.pinimg.com/originals/78/6d/86/786d86d94d9d8764fefe6054b790fcc9.jpg',
+    ogImage: 'https://i.pinimg.com/originals/78/6d/86/786d86d94d9d8764fefe6054b790fcc9.jpg',
     applicationName: '???a',
   })
 </script>
