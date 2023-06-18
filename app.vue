@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout
-    class="min-h-screen relative dark:bg-gray-600 dark:text-gray-100"
+    class="min-h-screen relative dark:bg-gray-600 dark:text-gray-100 container mx-auto"
   >
     <NuxtPage/>
   </NuxtLayout>

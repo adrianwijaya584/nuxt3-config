@@ -10,18 +10,26 @@
       <form @submit.prevent="login()" class="mt-4 space-y-4">
         <input type="text" class="w-full bg-transparent rounded-md" placeholder="Masukan username">
         
-        <button class="w-full bg-green-400 py-2 rounded-md text-white">Login</button>
+        <UButton type="submit" :loading="isLoading" size="lg" class="justify-center w-full">Login</UButton>
       </form>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  const counter= useDoubleCounter()
+  import {useTokenStore} from '~/stores/token'
+
+  // const counter= useDoubleCounter()
+  const tokenStore= useTokenStore()
+  const isLoading= shallowRef(false)
 
   function login() {
-    const token= useCookie('token')
+    isLoading.value= true
     
-    token.value= '123'
+    tokenStore.setToken('123456')
+
+    setTimeout(()=> {
+      isLoading.value= false
+    }, 1000)
   }
 </script>

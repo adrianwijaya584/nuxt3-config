@@ -8,12 +8,14 @@
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo illum quaerat voluptatibus rerum dolore iusto id, impedit temporibus tenetur eligendi incidunt cum, eaque, similique velit omnis eum totam. Eius, consequuntur.
     </p>
 
-    <div v-if="todoStore.isLoading">
+    <UButton @click="refresh()">Refresh data</UButton>
+
+    <div v-if="pending">
       <p>getting data....</p>
     </div>
 
     <div v-else>
-      <NuxtLink v-for="{id, title}, k in todoStore.todos" :to="`/todo/${id}`">
+      <NuxtLink v-for="{id, title} in data" :to="`/todo/${id}`" :key="id">
         <p>{{title}}</p>
       </NuxtLink>
     </div>
@@ -21,11 +23,13 @@
 </template>
 
 <script setup lang="ts">
-  import useTodoStore from '~/stores/todos';
+  import {useTokenStore} from '~/stores/token';
 
-  const todoStore= useTodoStore()
+  const tokenStore= useTokenStore()
 
-  onMounted(async ()=> {
-    await todoStore.getTodos()
+  const { data, pending, refresh } = await useFetch<TodoData[]>('https://jsonplaceholder.typicode.com/todos', {
+    headers: {
+      token: tokenStore.getToken()
+    }
   })
 </script>

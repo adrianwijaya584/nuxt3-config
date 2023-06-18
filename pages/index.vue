@@ -20,13 +20,16 @@
 
     <form @submit.prevent="addNewCat()" class="flex flex-col space-y-2">
       <label for="name">Nama kucing</label>
-      <input type="text" id="name" v-model="name" class="dark:text-black">
-      <button class="bg-slate-400">Tambahkan kucing</button>
+      <UInput v-model="name" size="lg" />
+      <UButton size="lg" type="submit">Kirim</UButton>
     </form>
 
-    <div v-for="cat, k in catsStore.cats" :key="k">
-      <p>{{ cat.name }}</p>
-      <button @click="deleteCat(k)">Hapus kucing</button>
+    <div class="space-y-2">
+      <template v-for="cat, k in catsStore.cats" :key="k">
+        <p>{{ cat.name }}</p>
+
+        <UButton color="red" size="lg" @click="deleteCat(k)" class="text-white">Hapus kucing</UButton>
+      </template>
     </div>
 
   </div>

@@ -1,3 +1,5 @@
+import {useTokenStore} from './token'
+
 export const useCatsStore= defineStore("cats", {
   state: ()=>({
     cats: useLocalStorage('catsData', [{
@@ -5,10 +7,12 @@ export const useCatsStore= defineStore("cats", {
     }, {
       name: 'meong'
     }]),
-    test: useCookie('test')
   }),
   actions: {
     addCat(name: string) {
+      console.log(useTokenStore().getToken());
+      
+      
       this.cats.push({
         name
       })

@@ -1,3 +1,5 @@
+import {useTokenStore} from '~/stores/token'
+
 export default defineNuxtRouteMiddleware((to, from)=> {
   const nuxtApp= useNuxtApp()
   const pathWithMiddleware= ['secret', 'todo/:id']
@@ -6,12 +8,10 @@ export default defineNuxtRouteMiddleware((to, from)=> {
   const fromPath= nuxtApp.$cleanUrl(from.matched[0].path)
 
   if (pathWithMiddleware.includes(toPath)) {
-    const token= useCookie('token')
+    const {getToken}= useTokenStore()
+    const token= getToken()
 
-    console.log(token.value);
-    
-
-    if (!token.value) {
+    if (!token) {
       const redirectUrl= useState('redirectUrl', ()=> '/')
 
       if (pathWithMiddleware.includes(fromPath)) {
@@ -22,9 +22,8 @@ export default defineNuxtRouteMiddleware((to, from)=> {
       
       try {
         nuxtApp.$toast.error('Oops anda belum login :(', {})
-      } catch (error) {
-        console.log(error);
-      }
+      } catch(e) {}
+
       return navigateTo(redirectUrl.value)  
     }
 

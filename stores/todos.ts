@@ -1,18 +1,9 @@
-interface TodoData {
-  id: string
-  title: string
-  completed: boolean
-}
-
 const useTodoStore= defineStore('todos', {
   state: ()=> ({
     isLoading: false,
     todos: <TodoData[]>[],
     todoDetail: <TodoData | undefined> undefined,
   }),
-  hydrate(state) {
-    state.todoDetail= undefined
-  },
   actions: {
     async getTodos(){
       try {

@@ -7,14 +7,16 @@
 </template>
 
 <script lang="ts" setup>
+  import {useTokenStore} from '~/stores/token'
+
   definePageMeta({
     middleware: ['admin']
   })
 
-  const token= useCookie('token')
+  const tokenStore= useTokenStore()
 
   function logout() {
-    token.value= null
+    tokenStore.deleteToken()
     
     navigateTo('/')
   }
