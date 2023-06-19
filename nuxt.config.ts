@@ -1,10 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   typescript: {
-    shim: false
+    shim: false,
   },
   devServer: {
-    port: 3001
+    port: 3001,
   },
   // ssr: false,
   modules: [
@@ -26,7 +26,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Nuxt 3.5 preview test',
-    }
+    },
   },
 
   devtools: {

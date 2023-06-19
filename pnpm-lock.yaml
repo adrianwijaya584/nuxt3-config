@@ -10,6 +10,7 @@ specifiers:
   '@types/node': ^18
   '@vueuse/core': ^10.1.2
   '@vueuse/nuxt': ^10.1.2
+  axios: ^1.4.0
   eslint: ^8.0.1
   lazysizes: ^5.3.2
   nuxt: 3.5.2
@@ -24,6 +25,7 @@ dependencies:
   '@pinia/nuxt': 0.4.11_typescript@5.1.3
   '@vueuse/core': 10.1.2
   '@vueuse/nuxt': 10.1.2_w2byga4ydmpjzodp5tla27bh5y
+  axios: 1.4.0
   lazysizes: 5.3.2
   pinia: 2.1.4_typescript@5.1.3
   tailwindcss: 3.3.2
@@ -33,7 +35,7 @@ dependencies:
 devDependencies:
   '@nuxt/devtools': 0.5.5_nuxt@3.5.2+vite@4.3.9
   '@nuxt/image-edge': 1.0.0-28059208.2abef1b
-  '@nuxthq/ui': 2.4.0
+  '@nuxthq/ui': 2.4.0_axios@1.4.0
   '@tailwindcss/forms': 0.5.3_tailwindcss@3.3.2
   '@types/node': 18.16.18
   eslint: 8.42.0
@@ -1131,7 +1133,7 @@ packages:
       - vti
       - vue-tsc
 
-  /@nuxthq/ui/2.4.0:
+  /@nuxthq/ui/2.4.0_axios@1.4.0:
     resolution: {integrity: sha512-K7h4USb095DDIq3BCaSLT7mU4UoMzes6ALHqTiDIfuRGnQyTNbvH5oIkBIv1gsKILHzEPWFp391jrEFpwiidtg==}
     engines: {node: '>=16.14.0'}
     dependencies:
@@ -1147,7 +1149,7 @@ packages:
       '@tailwindcss/forms': 0.5.3_tailwindcss@3.3.2
       '@tailwindcss/typography': 0.5.9_tailwindcss@3.3.2
       '@vueuse/core': 10.1.2
-      '@vueuse/integrations': 10.2.0_fuse.js@6.6.2
+      '@vueuse/integrations': 10.2.0_axios@1.4.0+fuse.js@6.6.2
       '@vueuse/math': 10.2.0
       defu: 6.1.2
       fuse.js: 6.6.2
@@ -1726,7 +1728,7 @@ packages:
       - vue
     dev: true
 
-  /@vueuse/integrations/10.2.0_fuse.js@6.6.2:
+  /@vueuse/integrations/10.2.0_axios@1.4.0+fuse.js@6.6.2:
     resolution: {integrity: sha512-e+MIRMi2Zo8DZKXszut8iVoZGlf07XXoaDt27W0DRJVYPdods50MV8Bnla5Tnuil0gHY/W5mMcqiQre9Xb246Q==}
     peerDependencies:
       async-validator: '*'
@@ -1769,6 +1771,7 @@ packages:
     dependencies:
       '@vueuse/core': 10.2.0
       '@vueuse/shared': 10.2.0
+      axios: 1.4.0
       fuse.js: 6.6.2
       vue-demi: 0.14.5
     transitivePeerDependencies:
@@ -2062,7 +2065,6 @@ packages:
 
   /asynckit/0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
-    dev: true
 
   /at-least-node/1.0.0:
     resolution: {integrity: sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==}
@@ -2096,6 +2098,15 @@ packages:
     transitivePeerDependencies:
       - debug
     dev: true
+
+  /axios/1.4.0:
+    resolution: {integrity: sha512-S4XCWMEmzvo64T9GfvQDOXgYRDJ/wsSZc7Jvdgx5u1sd0JwsuPLqb3SYmusag+edF6ziyMensPVqLTSc1PiSEA==}
+    dependencies:
+      follow-redirects: 1.15.2
+      form-data: 4.0.0
+      proxy-from-env: 1.1.0
+    transitivePeerDependencies:
+      - debug
 
   /balanced-match/1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -2464,7 +2475,6 @@ packages:
     engines: {node: '>= 0.8'}
     dependencies:
       delayed-stream: 1.0.0
-    dev: true
 
   /commander/2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
@@ -2807,7 +2817,6 @@ packages:
   /delayed-stream/1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
     engines: {node: '>=0.4.0'}
-    dev: true
 
   /delegates/1.0.0:
     resolution: {integrity: sha512-bd2L678uiWATM6m5Z1VzNCErI3jiGzt6HGY8OVICs40JQq/HALfbyNJmp0UDakEY4pMMaN0Ly5om/B1VI/+xfQ==}
@@ -3315,7 +3324,6 @@ packages:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.35
-    dev: true
 
   /formdata-polyfill/4.0.10:
     resolution: {integrity: sha512-buewHzMvYL29jdeQTVILecSaZKnt/RJWjoZCF5OW60Z67/GmSLBkOFM7qh1PI3zFNtJbaZL5eQu1vLfazOwj4g==}
@@ -5827,6 +5835,9 @@ packages:
 
   /protocols/2.0.1:
     resolution: {integrity: sha512-/XJ368cyBJ7fzLMwLKv1e4vLxOju2MNAIokcr7meSaNcVbWz/CPcW22cP04mwxOErdA5mwjA8Q6w/cdAQxVn7Q==}
+
+  /proxy-from-env/1.1.0:
+    resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
 
   /prr/1.0.1:
     resolution: {integrity: sha512-yPw4Sng1gWghHQWj0B3ZggWUm4qVbPwPFcRG8KyxiU7J2OHFSoEHKS+EZ3fv5l1t9CyCiop6l/ZYeWbrgoQejw==}
