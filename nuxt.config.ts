@@ -13,7 +13,23 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     // '@nuxtjs/tailwindcss',
     '@nuxthq/ui',
+    'nuxt-proxy',
   ],
+
+ proxy: {
+  options: [
+    {
+      target: 'http://54.254.113.229/py',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/proxy/psg': '/psg'
+      },
+      pathFilter: [
+        '/proxy/psg'
+      ]
+    }
+  ]
+ },
 
   image: {
     domains: ['**', 'i.pinimg.com'],
