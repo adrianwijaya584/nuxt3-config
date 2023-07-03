@@ -1,22 +1,5 @@
 <template>
   <div class="flex flex-col items-start space-y-3">
-    <NuxtImg
-      preload
-      loading="lazy"
-      src="https://i.pinimg.com/736x/1b/88/92/1b8892d1ee65e258a2ce7804f52c5f9a.jpg"
-      height="200" 
-      width="200" 
-      alt="ryo yamada"
-      class="self-start"
-    />
-
-    <NuxtImg
-      src="/jeanne.jpg"
-      height="200" 
-      width="200" 
-      alt="jeanne"
-      class="self-start"
-    />
 
     <ModelSelect
       :options="cats"

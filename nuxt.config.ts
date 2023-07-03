@@ -13,25 +13,50 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     // '@nuxtjs/tailwindcss',
     '@nuxthq/ui',
-    'nuxt-proxy',
-    '@vite-pwa/nuxt',
+    // 'nuxt-proxy',
+    '@kevinmarrec/nuxt-pwa'
   ],
-
- proxy: {
-  options: [
-    {
-      target: 'http://54.254.113.229/py',
-      changeOrigin: true,
-      pathRewrite: {
-        '^/proxy/psg': '/psg'
-      },
-      pathFilter: [
-        '/proxy/psg'
-      ]
+  nitro: {
+    prerender: {
+      routes: ['/']
     }
-  ]
- },
-
+  },
+  pwa: {
+    icon: {
+      fileName: 'pwa-512x512.png',
+    },
+    manifest: {
+      name: 'Adrian PWA',
+      short_name: 'Adrian PWA',
+      theme_color: '#ffffff',
+      icons: [
+        {
+          src: 'pwa-512x512.png',
+          sizes: '512x512',
+          type: 'image/png',
+          purpose: 'any',
+        },
+      ]
+    },
+    workbox: {
+      enabled: true
+    }
+  },
+//  proxy: {
+//   options: [
+//     {
+//       target: 'http://54.254.113.229/py',
+//       changeOrigin: true,
+//       pathRewrite: {
+//         '^/proxy/psg': '/psg'
+//       },
+//       pathFilter: [
+//         '/proxy/psg'
+//       ]
+//     }
+//   ]
+//  },
+  
   image: {
     domains: ['**', 'i.pinimg.com'],
   },
@@ -50,27 +75,4 @@ export default defineNuxtConfig({
     enabled: true,
   },
 
-  pwa: {
-    registerType: 'autoUpdate',
-    manifest: {
-      name: 'Nuxt Vite PWA',
-      short_name: 'NuxtVitePWA',
-      theme_color: '#ffffff',
-      icons: [
-        {
-          src: 'pwa-512x512.png',
-          sizes: '512x512',
-          type: 'image/png',
-          purpose: 'any maskable',
-        },
-      ]
-    },
-    workbox: {
-      navigateFallback: '/',
-      globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
-    }, 
-    client: {
-      installPrompt: true
-    } 
-  },
 })
