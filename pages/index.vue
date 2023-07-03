@@ -18,6 +18,11 @@
       class="self-start"
     />
 
+    <ModelSelect
+      :options="cats"
+      v-model="cat"
+    />
+
     <form @submit.prevent="addNewCat()" class="flex flex-col space-y-2">
       <label for="name">Nama kucing</label>
       <UInput v-model="name" size="lg" />
@@ -37,15 +42,33 @@
 
 <script setup lang="ts">
   import { useCatsStore } from '~/stores/cats';
+  import {ModelSelect} from 'vue-search-select'
 
   useHead({
     title: 'Hello World',
   })
 
+  useSeoMeta({
+    description: 'hello'
+  })
+
   const nuxtApp= useNuxtApp()
 
   const name= shallowRef('pus')
+  const cat= shallowRef('meow')
+  const cats= shallowRef([
+    {
+      value: 'meow',
+      text: 'meow'
+    },
+    {
+      value: 'mpus',
+      text: 'mpusss'
+    },
+  ])
   const catsStore= useCatsStore()
+
+  watch(cat, (v)=> console.log(v))
 
   function addNewCat() {
     if (!name.value) {

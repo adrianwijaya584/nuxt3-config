@@ -10,7 +10,12 @@
   import {useTokenStore} from '~/stores/token'
 
   definePageMeta({
-    middleware: ['admin']
+    layout: 'admin',
+    middleware: 'admin'
+  })
+
+  useSeoMeta({
+    description: 'lorem ipsum'
   })
 
   const tokenStore= useTokenStore()

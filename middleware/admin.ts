@@ -6,7 +6,7 @@ export default defineNuxtRouteMiddleware((to, from)=> {
 
   const toPath= nuxtApp.$cleanUrl(to.matched[0].path)
   const fromPath= nuxtApp.$cleanUrl(from.matched[0].path)
-
+  
   if (pathWithMiddleware.includes(toPath)) {
     const {getToken}= useTokenStore()
     const token= getToken()

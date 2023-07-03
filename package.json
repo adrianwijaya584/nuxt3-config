@@ -14,6 +14,7 @@
     "@nuxthq/ui": "^2.4.0",
     "@tailwindcss/forms": "^0.5.3",
     "@types/node": "^18",
+    "@vite-pwa/nuxt": "^0.1.0",
     "eslint": "^8.0.1",
     "nuxt": "3.5.2",
     "typescript": "*"
@@ -24,11 +25,13 @@
     "@vueuse/core": "^10.1.2",
     "@vueuse/nuxt": "^10.1.2",
     "axios": "^1.4.0",
+    "jquery": "^3.7.0",
     "lazysizes": "^5.3.2",
     "nuxt-proxy": "^0.4.1",
     "pinia": "^2.1.3",
     "tailwindcss": "^3.3.2",
     "vite": "^4.3.8",
+    "vue-search-select": "^3.1.2",
     "vue3-toastify": "^0.1.10"
   },
   "overrides": {
