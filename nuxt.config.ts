@@ -3,6 +3,9 @@ export default defineNuxtConfig({
   typescript: {
     shim: false,
   },
+  runtimeConfig: {
+    public: {}
+  },
   devServer: {
     port: 3002,
   },
@@ -37,10 +40,7 @@ export default defineNuxtConfig({
           purpose: 'any',
         },
       ]
-    },
-    workbox: {
-      enabled: true
-    }
+    },  
   },
 //  proxy: {
 //   options: [
@@ -68,6 +68,12 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Nuxt 3.5 preview test',
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/favicon.ico' }
+      ],
+      htmlAttrs: {
+        lang: 'en'
+      },
     },
   },
 

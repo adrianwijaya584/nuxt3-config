@@ -15,8 +15,8 @@ export const useTokenStore= defineStore('token', {
     },
     setToken(token: string) {
       useCookie(tokenKey, {
-        // set cookie for 7 days
-        maxAge: 7 * 24 * 60 * 60 * 1000
+        // set cookie for 7 days max age format is seconds
+        maxAge: 7 * 24 * 60 * 60
       }).value= token
     },
     deleteToken() {

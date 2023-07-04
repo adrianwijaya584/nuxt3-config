@@ -4,6 +4,14 @@ export default defineNuxtRouteMiddleware((to, from)=> {
   const nuxtApp= useNuxtApp()
   const pathWithMiddleware= ['secret', 'todo/:id']
 
+  try {
+    useAxios('').then((data)=> {
+      // console.log(data.data);
+    })
+  } catch (error) {
+    console.log(error);
+  }
+
   const toPath= nuxtApp.$cleanUrl(to.matched[0].path)
   const fromPath= nuxtApp.$cleanUrl(from.matched[0].path)
   
