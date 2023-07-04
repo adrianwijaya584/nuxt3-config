@@ -3,7 +3,9 @@
     <h3 class="text-center font-bold text-3xl">About us</h3>
 
       <img
-        src="https://i.pinimg.com/736x/1b/88/92/1b8892d1ee65e258a2ce7804f52c5f9a.jpg"
+        v-for=" image, k in images"
+        :key="k"
+        :src="image"
         height="200" 
         width="200" 
         alt="ryo yamada"
@@ -38,6 +40,13 @@
 
 <script setup lang="ts">
   import {useTokenStore} from '~/stores/token';
+  
+  const images= [
+    'https://images.alphacoders.com/131/1311951.jpg',
+    'https://i.pinimg.com/736x/1b/88/92/1b8892d1ee65e258a2ce7804f52c5f9a.jpg',
+    'https://www.pngitem.com/pimgs/m/25-252867_fate-grand-order-arcade-characters-hd-png-download.png',
+    'https://www.famitsu.com/images/000/163/605/l_5b9115a024904.jpg'
+  ];
 
   const tokenStore= useTokenStore()
 
