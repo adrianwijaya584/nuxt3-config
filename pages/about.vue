@@ -10,12 +10,12 @@
         class="self-start lazyload"
       />
 
-      <NuxtImg
+      <img
         src="/jeanne.jpg"
         height="200" 
         width="200" 
         alt="jeanne"
-        class="self-start"
+        class="self-start lazyload"
       />
 
     <p class="line-clamp-3 w-2/5 mb-6">
