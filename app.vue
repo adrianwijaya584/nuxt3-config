@@ -7,8 +7,8 @@
 </template>
 
 <script setup lang="ts">
-  // import 'lazysizes';
-  // import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+  import 'lazysizes';
+  import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
   useServerSeoMeta({
     description: 'Web testing nuxt 3',
