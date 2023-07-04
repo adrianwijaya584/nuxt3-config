@@ -1,7 +1,8 @@
 import axios, { AxiosError } from 'axios';
+import appConfig from '~/app.config';
 
 axios.interceptors.request.use((request)=> {
-  request.baseURL= 'https://jsonplaceholder.typicode.com/todos';
+  request.baseURL= appConfig.apiBaseUrl;
 
   return request;
 }, (error)=> {
