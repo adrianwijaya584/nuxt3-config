@@ -7,7 +7,7 @@ function cleanUrl(url: string): string {
 export default defineNuxtPlugin(()=> {
   return {
     provide: {
-      cleanUrl
+      cleanUrl,
     }
   }
 })
