@@ -1,18 +1,18 @@
-import {useTokenStore} from './token'
 
 export const useCatsStore= defineStore("cats", {
   state: ()=>({
-    cats: useLocalStorage('catsData', [{
+    cats: useLocalStorage('catsData', <{name: string}[]>[]),
+  }),
+  hydrate(state, initialState) {
+    // @ts-ignore
+    state.cats= useLocalStorage('catsData', [{
       name: "mpus",
     }, {
       name: 'meong'
-    }]),
-  }),
+    }]);
+  },
   actions: {
     addCat(name: string) {
-      console.log(useTokenStore().getToken());
-      
-      
       this.cats.push({
         name
       })

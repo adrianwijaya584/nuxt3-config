@@ -2,8 +2,9 @@
   <div class="flex flex-col items-start space-y-3">
 
     <ModelSelect
-      :options="cats"
-      v-model="cat"
+      :options="provinces"
+      v-model="province"
+      placeholder="Pilih provinsi disini"
     />
 
     <form @submit.prevent="addNewCat()" class="flex flex-col space-y-2">
@@ -13,11 +14,13 @@
     </form>
 
     <div class="space-y-2">
-      <template v-for="cat, k in catsStore.cats" :key="k">
-        <p>{{ cat.name }}</p>
+      <ClientOnly>
+        <template v-for="cat, k in catsStore.cats" :key="k">
+          <p>{{ cat.name }}</p>
 
-        <UButton color="red" size="lg" @click="deleteCat(k)" class="text-white">Hapus kucing</UButton>
-      </template>
+          <UButton color="red" size="lg" @click="deleteCat(k)" class="text-white">Hapus kucing</UButton>
+        </template>
+      </ClientOnly>
     </div>
 
   </div>
@@ -27,6 +30,8 @@
   import { useCatsStore } from '~/stores/cats';
   import {ModelSelect} from 'vue-search-select'
 
+  const nuxtApp= useNuxtApp()
+
   useHead({
     title: 'Hello World',
   })
@@ -35,23 +40,24 @@
     description: 'hello'
   })
 
-  const nuxtApp= useNuxtApp()
+  const {data}= useLazyFetch('https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json');
 
   const name= shallowRef('pus')
-  const cat= shallowRef('meow')
-  const cats= shallowRef([
-    {
-      value: 'meow',
-      text: 'meow'
-    },
-    {
-      value: 'mpus',
-      text: 'mpusss'
-    },
-  ])
+
+  const province= shallowRef('')
+  const provinces= computed(()=> {
+    if (!data) {
+      return [];
+    }
+
+    return (data.value as {name: string}[]).map((v)=> ({
+      value: v.name.toLowerCase(),
+      text: v.name.toLowerCase(),
+    }))
+  })
   const catsStore= useCatsStore()
 
-  watch(cat, (v)=> console.log(v))
+  watch(province, (v)=> console.log(v))
 
   function addNewCat() {
     if (!name.value) {
