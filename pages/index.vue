@@ -29,6 +29,7 @@
 <script setup lang="ts">
   import { useCatsStore } from '~/stores/cats';
   import {ModelSelect} from 'vue-search-select'
+  import provinces from '@/assets/province.json';
 
   const nuxtApp= useNuxtApp()
 
@@ -40,21 +41,9 @@
     description: 'hello'
   })
 
-  const {data}= useLazyFetch('https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json');
-
   const name= shallowRef('pus')
 
   const province= shallowRef('')
-  const provinces= computed(()=> {
-    if (!data) {
-      return [];
-    }
-
-    return (data.value as {name: string}[]).map((v)=> ({
-      value: v.name.toLowerCase(),
-      text: v.name.toLowerCase(),
-    }))
-  })
   const catsStore= useCatsStore()
 
   watch(province, (v)=> console.log(v))
@@ -75,5 +64,10 @@
 
     nuxtApp.$toast.success('Kucing berhasil dihapus')
   }
+
+  onMounted(()=> {
+    console.log(useDateFormatter(new Date(), 'DD-MM-YYYY HH:mm:ss'));
+    
+  })
 
 </script>

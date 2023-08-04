@@ -2,7 +2,7 @@
   <div class="">
     <h3 class="text-center font-bold text-3xl">About us</h3>
 
-      <img
+      <!-- <img
         v-for=" image, k in images"
         :key="k"
         :src="image"
@@ -18,7 +18,7 @@
         width="200" 
         alt="jeanne"
         class="self-start lazyload"
-      />
+      /> -->
 
     <p class="line-clamp-3 w-2/5 mb-6">
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo illum quaerat voluptatibus rerum dolore iusto id, impedit temporibus tenetur eligendi incidunt cum, eaque, similique velit omnis eum totam. Eius, consequuntur.

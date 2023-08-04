@@ -11,12 +11,22 @@
 
     <EasyDataTable
       show-index
+      alternating
+      border-cell
+      buttons-pagination
       :headers="headers"
       :items="items"
       :search-field="searchField"
       :search-value="searchValue"
       :filter-options="FilterOptions"
     >
+      <template #item-name="item">
+        <div class="flex items-center">
+          <img :src="item.image" class="lazyload w-12 h-12 object-cover rounded-full border border-black">
+          <p class="ml-2 text-base font-bold">{{ item.name }}</p>
+        </div>
+      </template>
+
       <template #item-action="item">
         <div class="">
           <button class="bg-red-400" @click="showAlert(item.name)">Hapus</button>
@@ -29,6 +39,8 @@
 <script setup lang="ts">
   import EasyDataTable, {Header, Item, FilterOption} from 'vue3-easy-data-table';
   import 'vue3-easy-data-table/dist/style.css';
+
+  const nuxtApp = useNuxtApp()
 
   const searchField = ['name'];
   const searchValue = shallowRef('');
@@ -43,9 +55,9 @@
     ];
 
     const items: Item[] = [
-      { "name": "Curry", "height": 178, "weight": 77, "age": 20, },
-      { "name": "James", "height": 180, "weight": 75, "age": 21, },
-      { "name": "Jordan", "height": 181, "weight": 73, "age": 22, }
+      { "name": "Curry", "height": 178, "weight": 77, "age": 20, image: 'https://bafkreih3oswhrhrvxwhebuqqnlqtklnth5pbc2q3iv6446icpltt6tymvy.ipfs.dweb.link/?filename=Stephen.png' },
+      { "name": "James", "height": 180, "weight": 75, "age": 21, image: 'https://bafkreih3oswhrhrvxwhebuqqnlqtklnth5pbc2q3iv6446icpltt6tymvy.ipfs.dweb.link/?filename=Stephen.png' },
+      { "name": "Jordan", "height": 181, "weight": 73, "age": 22, image: 'https://bafkreih3oswhrhrvxwhebuqqnlqtklnth5pbc2q3iv6446icpltt6tymvy.ipfs.dweb.link/?filename=Stephen.png' }
     ]
 
     const FilterOptions= computed((): FilterOption[]=> {
@@ -65,4 +77,9 @@
     function showAlert(name: string) {
       alert(`hello ${name}`)
     }
+
+  onMounted(()=> {
+
+    // nuxtApp.$toast.success('ok')
+  })
 </script>
