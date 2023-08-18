@@ -4,7 +4,10 @@ export default defineNuxtConfig({
     shim: false,
   },
   runtimeConfig: {
-    public: {}
+    AUTHOR_NAME: process.env.AUTHOR_NAME ?? '-',
+    public: {
+      AUTHOR_NAME: process.env.AUTHOR_NAME ?? '-',
+    }
   },
   devServer: {
     port: 3002,

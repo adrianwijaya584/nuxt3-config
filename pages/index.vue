@@ -1,5 +1,6 @@
 <template>
   <div class="flex flex-col items-start space-y-3">
+    <p>Author name {{ config.public.AUTHOR_NAME }}</p>
 
     <ModelSelect
       :options="provinces"
@@ -31,7 +32,8 @@
   import {ModelSelect} from 'vue-search-select'
   import provinces from '@/assets/province.json';
 
-  const nuxtApp= useNuxtApp()
+  const nuxtApp= useNuxtApp();
+  const config = useRuntimeConfig();
 
   useHead({
     title: 'Hello World',
